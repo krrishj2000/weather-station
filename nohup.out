@@ -1,0 +1,5 @@
+/home/krish/weather-station/fetch_website.py: 1: import: not found
+/home/krish/weather-station/fetch_website.py: 2: from: not found
+/home/krish/weather-station/fetch_website.py: 3: import: not found
+/home/krish/weather-station/fetch_website.py: 5: url: not found
+/home/krish/weather-station/fetch_website.py: 11: Syntax error: "(" unexpected (expecting "do")
