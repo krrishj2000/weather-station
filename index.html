@@ -1,0 +1,105 @@
+
+<!DOCTYPE HTML><html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+  <style>
+    /* Global styles */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f5f5f5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    /* Main container */
+    .container {
+      background-color: white;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      width: 100%;
+      max-width: 500px;
+    }
+
+    h2 {
+      font-size: 2.5rem;
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    /* Icon and text styling */
+    .icon {
+      font-size: 2.5rem;
+    }
+
+    /* Red thermometer icon for temperature */
+    .temperature .icon {
+      color: #e53935; /* Red color */
+    }
+
+    /* Blue tint icon for humidity */
+    .humidity .icon {
+      color: #1e88e5; /* Blue color */
+    }
+
+    .data {
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: #333;
+    }
+
+    .units {
+      font-size: 1.2rem;
+      color: #555;
+    }
+
+    /* Label styling */
+    .dht-labels {
+      font-size: 1.5rem;
+      color: #777;
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    /* Subtle border and padding for sections (without border-left) */
+    .section {
+      margin-bottom: 20px;
+      padding: 10px;
+      border-radius: 10px;
+      background-color: #f9f9f9;
+    }
+
+    /* Smooth transitions for updates */
+    .data, .units {
+      transition: color 0.3s ease;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Matrix Lab Weather Station</h2>
+    <div class="section temperature">
+      <div class="dht-labels">Temperature</div>
+      <div class="icon">
+        <i class="fas fa-thermometer-half"></i>
+      </div>
+      <div class="data" id="temperature">24.50</div>
+      <div class="units">&deg;C</div>
+    </div>
+    <div class="section humidity">
+      <div class="dht-labels">Humidity</div>
+      <div class="icon">
+        <i class="fas fa-tint"></i>
+      </div>
+      <div class="data" id="humidity">57.00</div>
+      <div class="units">%</div>
+    </div>
+  </div>
+</body>
+</html>
