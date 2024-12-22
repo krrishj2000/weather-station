@@ -12,7 +12,7 @@ while 1:
     try:
         # Send GET request to the URL
         response = requests.get(url, timeout=5)
-        
+        print(response)
         # Check if the request was successful
         if response.status_code == 200:
             # Save the HTML content to a file
