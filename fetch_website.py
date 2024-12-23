@@ -1,4 +1,5 @@
 import requests
+from time import sleep
 import os
 import re
 from datetime import datetime
@@ -46,3 +47,4 @@ while 1:
             print(f"Failed to fetch the webpage. HTTP Status Code: {response.status_code}")
     except:
         print("haha")
+    sleep(60)
