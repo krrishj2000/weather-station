@@ -1,14 +1,12 @@
-
-
-
 import requests
-from time import sleep
 import os
+import re
+from datetime import datetime
+import pandas as pd
 # URL of the webpage
 url = "http://10.70.0.57/"
 
 while 1:
-
     try:
         # Send GET request to the URL
         response = requests.get(url, timeout=5)
@@ -19,10 +17,26 @@ while 1:
             with open("/home/krish/weather-station/index.html", "w", encoding="utf-8") as file:
                 file.write(response.text)
             print("HTML saved successfully as '/home/krish/weather-station/index.html'")
+            html_content=response.text
+            temperature_match = re.search(r'id="temperature">([\d.]+)', html_content)
+            humidity_match = re.search(r'id="humidity">([\d.]+)', html_content)
 
+            if temperature_match and humidity_match:
+                temperature = float(temperature_match.group(1))
+                humidity = float(humidity_match.group(1))
+                current_time_iso = datetime.now().isoformat()
+                print(f"Temperature: {temperature}°C")
+                print(f"Humidity: {humidity}%")
+                print(f"Current time: {current_time_iso}")
+                df=pd.DataFrame()
+                df['time']=current_time_iso
+                df['temp']=temperature
+                df['rh']=humidity
+                df.to_csv(r"\log\"+current_time_iso+".csv")
+            else:
+                print("Temperature or humidity data not found.")
             os.system("sh /home/krish/weather-station/update_website.sh")
         else:
             print(f"Failed to fetch the webpage. HTTP Status Code: {response.status_code}")
-    except requests.exceptions.RequestException as e:
-        print(f"An error occurred: {e}")
-    sleep(10)
+    except:
+    print("haha")
