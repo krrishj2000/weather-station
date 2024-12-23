@@ -32,6 +32,12 @@ while 1:
                 df['time']=current_time_iso
                 df['temp']=temperature
                 df['rh']=humidity
+                log_folder = r"log"
+
+                # Create the folder if it doesn't exist
+                if not os.path.exists(log_folder):
+                    print("Logs folder not there; so creating...")
+                    os.makedirs(log_folder)
                 df.to_csv(r"\log\"+current_time_iso+".csv")
             else:
                 print("Temperature or humidity data not found.")
