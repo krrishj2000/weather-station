@@ -30,9 +30,9 @@ while 1:
                     print(f"Humidity: {humidity}%")
                     print(f"Current time: {current_time_iso}")
                     df=pd.DataFrame()
-                    df['time']=current_time_iso
-                    df['temp']=temperature
-                    df['rh']=humidity
+                    df['time']=[current_time_iso,]
+                    df['temp']=[temperature,]
+                    df['rh']=[humidity,]
                     log_folder = r"log"
         
                     # Create the folder if it doesn't exist
