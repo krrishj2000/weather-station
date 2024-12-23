@@ -38,11 +38,11 @@ while 1:
                 if not os.path.exists(log_folder):
                     print("Logs folder not there; so creating...")
                     os.makedirs(log_folder)
-                df.to_csv(r"\log\"+current_time_iso+".csv")
+                df.to_csv(r"/log/"+current_time_iso+".csv")
             else:
                 print("Temperature or humidity data not found.")
             os.system("sh /home/krish/weather-station/update_website.sh")
         else:
             print(f"Failed to fetch the webpage. HTTP Status Code: {response.status_code}")
     except:
-    print("haha")
+        print("haha")
